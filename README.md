@@ -1,13 +1,5 @@
 # Green Earth
 
-
-## Private Repository: https://classroom.github.com/a/nVZrg5R9 
-
-## Alternative Private Repository: https://classroom.github.com/a/KCGI14ST 
-
-## Alternative Private Repository: https://classroom.github.com/a/JMuIYqgK 
-
-
 ---
 🌴 API Endpoints
 ---
@@ -97,12 +89,12 @@ filter() = returns a new array with items that pass a condition.
 
 #### 3) What are arrow functions in ES6?
 
-## Ans:
+# Ans:
 Shorter syntax for functions in ES6. They don’t have their own this (take it from surrounding scope).
 
 #### 4) How does destructuring assignment work in ES6?
 
-## Ans:
+# Ans:
 A way to unpack values from arrays or objects into variables.
 Example:
 const [a, b] = [1, 2];  
@@ -110,7 +102,7 @@ const {name, age} = person;
 
 #### 5) Explain template literals in ES6. How are they different from string concatenation?
 
-## Ans:
+# Ans:
 Strings written with backticks `.
 They allow variables and expressions inside ${ }.
 Difference = No need for + concatenation, easier for multiline strings.
@@ -172,18 +164,3 @@ Clicking a tree name on a card opens a modal with full tree details.
         CSS (Vanilla / Tailwind / DaisyUI)
 
         JavaScript (Vanilla only, no frameworks)
-
-📌 Rules
-✅ At least 5 meaningful commits
-
-❌ No dummy text or Lorem Ipsum — must use relevant content
-
-
-
-
-
-## 🔗 Submission
-- **Live Link :** YOUR_DEPLOYED_URL_HERE  
-- **GitHub Private Repository:** YOUR_REPO_URL_HERE  
-
----
