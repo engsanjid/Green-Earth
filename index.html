@@ -42,8 +42,7 @@
     <a class="btn bg-[#FACC15] text-[#15803D]">Plant a Tree</a>
   </div>
 </div>
-
-    </nav>
+</nav>
 
 
 
@@ -60,6 +59,52 @@
     </div>
 
 
+
+<!--Spinner-->
+
+<section id="spinner" class="flex justify-center items-center py-10 hidden">
+  <span class="loading loading-bars loading-xl"></span>
+</section>
+
+
+
+<!-- Open the modal using ID.showModal() method -->
+<!--<button class="btn" onclick="my_modal_5.showModal()">open modal</button>-->
+<dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <div id="details-container">
+
+    </div>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
+
+<!--Functionalities section-->
+
+<section class="px-[135px] py-[80px]">
+    <h1 class="text-center text-4xl pb-6">Choose Your Trees</h1>
+    <div class="flex gap-[30px]">
+        <div class="w-1/4">
+            <h1 class="text-2xl font-bold pb-2">Categories</h1>
+               <div id="categories-container" class="flex flex-col gap-2">
+                </div>
+        </div>
+              <div id="card_container" class="grid grid-cols-3 gap-5 mx-10 my-10">
+
+              </div>
+      
+             <div class="">
+              <h1 class="font-bold text-2xl">Your Card</h1>
+              </div>
+       
+    </div>
+</section>
 
 <!--About Campaign-->
 
@@ -83,6 +128,7 @@
 
 
 <!--Our Impact Section-->
+
 <section class="px-[138px] bg-[#CFF0DC] pt-[100px] pb-[100px]">
   <h1 class="text-center pb-[40px] text-4xl">Our Impact</h1>
    
@@ -130,8 +176,10 @@
 
 
 <!--footer section-->
+
 <footer class="flex justify-center bg-[#14532D]">
-<p class="pt-[24px] pb-[24px]">© 2025 Green Earth. All Rights Reserved.</p>
+    <p class="pt-[24px] pb-[24px]">© 2025 Green Earth. All Rights Reserved.</p>
 </footer>
+<script src="/script/index.js"></script>
 </body>
 </html>

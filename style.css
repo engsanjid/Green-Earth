@@ -5,3 +5,7 @@
   font-weight: 627px;
   font-style: normal;
 }
+.active {
+    background-color: blue;
+    color: white;
+}
