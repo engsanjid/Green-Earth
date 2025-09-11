@@ -179,7 +179,6 @@ const displayPlantDetails = (plant) => {
     const modal = document.getElementById("my_modal_5");
     const modalContent = document.getElementById("details-container");
 
-    // Construct the HTML for the modal content
     const plantDetailsHTML = `
         <h3 class="text-2xl font-bold mb-4">${plant.name}</h3>
         <img src="${plant.image}" alt="${plant.name}" class="w-full h-64 object-cover rounded-xl mb-4"/>
@@ -187,11 +186,8 @@ const displayPlantDetails = (plant) => {
         <p class="text-sm text-gray-600 mb-2"><strong>Price:</strong> $${plant.price}</p>
         <p class="mb-4">${plant.description}</p>
     `;
-
-    // Insert the HTML content into the designated container
     modalContent.innerHTML = plantDetailsHTML;
 
-    // Show the modal
     modal.showModal();
 };
 
@@ -221,7 +217,7 @@ let cart = [];
 let totalPrice = 0;
 let pendingPlant = null;
 
-// Show modal
+
 const addToCart = async (plantId) => {
   const res = await fetch(`https://openapi.programming-hero.com/api/plant/${plantId}`);
   const data = await res.json();
@@ -234,8 +230,6 @@ const addToCart = async (plantId) => {
   document.getElementById("cart_modal").showModal();
 };
 
-
-// Confirm add when modal close button clicked
 document.getElementById("confirm-add").addEventListener("click", () => {
   if (pendingPlant) {
     cart.push(pendingPlant);
@@ -245,14 +239,12 @@ document.getElementById("confirm-add").addEventListener("click", () => {
   }
 });
 
-// Remove from cart
 const removeFromCart = (index) => {
   totalPrice -= parseFloat(cart[index].price);
   cart.splice(index, 1);
   updateCartUI();
 };
 
-// Update Cart UI
 const updateCartUI = () => {
   const cartList = document.getElementById("cart-list");
   cartList.innerHTML = "";
@@ -269,7 +261,7 @@ const updateCartUI = () => {
     cartList.appendChild(li);
   });
 
-  // Show / Hide Total
+
   const totalContainer = document.getElementById("total-container");
   if (cart.length > 0) {
     totalContainer.classList.remove("hidden");
