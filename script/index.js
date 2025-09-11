@@ -69,7 +69,7 @@ const displayloadPlantsCategories=(plantscategories)=>{
         //3.create elements
        const btnDiv=document.createElement('div');
        btnDiv.innerHTML=`
-       <div class="rounded-xl bg-white w-50 shadow-sm ">
+       <div class="rounded-xl bg-white grid auto width shadow-sm ">
 <figure class="h-48 w-full overflow-hidden">
   <img src="${plantscategory.image}" 
        alt="${plantscategory.name}" 
@@ -85,7 +85,11 @@ const displayloadPlantsCategories=(plantscategories)=>{
       <div class="btn-success whitespace-nowrap badge badge-outline text-[#44c071] bg-[#CFF0DC]">${plantscategory.category}</div>
       <div class="badge badge-outline">${plantscategory.price}</div>
     </div>
-     <div class="btn rounded-xl bg-[#15803D]">Add to Cart</div>
+     <button onclick="addToCart(${plantscategory.id})" 
+        class="btn rounded-xl bg-[#15803D] text-white">
+     Add to Cart
+     </button>
+
   </div>
 </div>
        `;
@@ -121,7 +125,7 @@ const displayAllPlants=(Allplants)=>{
         //3.create elements
        const btnDiv=document.createElement('div');
        btnDiv.innerHTML=`
-       <div class="rounded-xl bg-white w-50 shadow-sm ">
+       <div class="rounded-xl bg-white grid auto width shadow-sm ">
 <figure class="h-48 w-full overflow-hidden">
   <img src="${AllPlant.image}" 
        alt="${AllPlant.name}" 
@@ -138,7 +142,10 @@ const displayAllPlants=(Allplants)=>{
       <div class="btn-success whitespace-nowrap badge badge-outline text-[#44c071] bg-[#CFF0DC]"> ${AllPlant.category}</div>
       <div class="badge badge-outline"> ${AllPlant.price}</div>
     </div>
-     <div class="btn rounded-xl bg-[#15803D]">Add to Cart</div>
+           <button onclick="addToCart(${AllPlant.id})" 
+           class="btn rounded-xl bg-[#15803D] text-white mt-2">
+           Add to Cart
+          </button>
   </div>
 </div>
        `;
@@ -207,3 +214,68 @@ else
 }
 }
 
+
+
+
+let cart = [];
+let totalPrice = 0;
+let pendingPlant = null;
+
+// Show modal
+const addToCart = async (plantId) => {
+  const res = await fetch(`https://openapi.programming-hero.com/api/plant/${plantId}`);
+  const data = await res.json();
+  const plant = data.plants;
+
+  pendingPlant = plant;
+
+  document.getElementById("modal-message").innerText =
+    `${plant.name} has been added to the cart`;
+  document.getElementById("cart_modal").showModal();
+};
+
+
+// Confirm add when modal close button clicked
+document.getElementById("confirm-add").addEventListener("click", () => {
+  if (pendingPlant) {
+    cart.push(pendingPlant);
+    totalPrice += parseFloat(pendingPlant.price);
+    updateCartUI();
+    pendingPlant = null;
+  }
+});
+
+// Remove from cart
+const removeFromCart = (index) => {
+  totalPrice -= parseFloat(cart[index].price);
+  cart.splice(index, 1);
+  updateCartUI();
+};
+
+// Update Cart UI
+const updateCartUI = () => {
+  const cartList = document.getElementById("cart-list");
+  cartList.innerHTML = "";
+
+  cart.forEach((item, index) => {
+    const li = document.createElement("li");
+    li.classList.add("flex", "justify-between", "items-center");
+
+    li.innerHTML = `
+      <span>${item.name} <br> $${item.price}</span>
+      <button onclick="removeFromCart(${index})" class="text-red-500">❌</button>
+    `;
+
+    cartList.appendChild(li);
+  });
+
+  // Show / Hide Total
+  const totalContainer = document.getElementById("total-container");
+  if (cart.length > 0) {
+    totalContainer.classList.remove("hidden");
+    document.getElementById("total-price").innerText = totalPrice.toFixed(2);
+  } else {
+    totalContainer.classList.add("hidden");
+    document.getElementById("total-price").innerText = "0";
+  }
+};
