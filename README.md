@@ -1,166 +1,190 @@
-# Green Earth
+# 🌿 Green Earth — Plant a Tree Campaign
+
+A responsive web application built with vanilla HTML, CSS, and JavaScript that enables users to explore trees by category, view detailed plant information, and contribute to a reforestation campaign.
 
 ---
-🌴 API Endpoints
----
-1. Get 🌴All Plants
-```bash
-https://openapi.programming-hero.com/api/plants
-```
 
-2. Get 🌴All categories <br/>
-```bash
-https://openapi.programming-hero.com/api/categories
-```
+## 🚀 Live Demo
 
-
-3. Get 🌴plants by categories <br/>
-```bash
-https://openapi.programming-hero.com/api/category/${id}
-```
-
-```bash
-https://openapi.programming-hero.com/api/category/1
-```
-
-4. Get 🌴Plants Detail <br/>
-
-```bash
-https://openapi.programming-hero.com/api/plant/${id}
-```
-
-```bash
-https://openapi.programming-hero.com/api/plant/1
-```
----
-
-
-
-
-## ✅ Main Requirements 
-
-#### 1) Navbar
-
-- Website **logo/name** on the **left**  
-- **Menu items** in the **center** 
-- **Plant a Tree button** on the **right** 
-
-#### 2) Banner 
-- A **background image**  
-- A **title** and **subtitle**  
-- A **centered button**  
-
-#### 3) About Campaign
-- **Section heading**  
-- **Image on the left**, **text on the right**  
-
-#### 4) Our Impact Section 
-- Show **3 cards** with campaign **statistics**  
-
-#### 5) Plant a Tree Today Section & Footer
-- **Form**: Name, Email, Number of Trees  
-- **Footer** with copyright info 
-
-#### 6) Responsiveness 
-- Website must be **mobile responsive**  
+> aquamarine-cactus-845014.netlify.app
 
 ---
-#### 7) Create a README file to answer the following question-
 
+## 📡 API Reference
 
-#### 1) What is the difference between var, let, and const?
+Base URL: `https://openapi.programming-hero.com/api`
 
-# Ans:
-var=function-scoped, can be re-declared, old way.
+| Endpoint | Description |
+|---|---|
+| `GET /plants` | Fetch all plants |
+| `GET /categories` | Fetch all plant categories |
+| `GET /category/:id` | Fetch plants by category ID |
+| `GET /plant/:id` | Fetch detailed info for a specific plant |
 
-let =block-scoped, can change value but not re-declared in the same scope.
+**Examples:**
+```
+GET https://openapi.programming-hero.com/api/category/1
+GET https://openapi.programming-hero.com/api/plant/1
+```
 
-const =block-scoped, cannot be reassigned.
+---
 
+## ✅ Core Features
 
-#### 2) What is the difference between map(), forEach(), and filter()? 
+### Layout & UI
+- **Navbar** — Logo/name on the left, navigation links in the center, and a "Plant a Tree" CTA button on the right
+- **Banner** — Full-width background image with a title, subtitle, and centered call-to-action button
+- **About Section** — Section heading with image on the left and descriptive text on the right
+- **Impact Section** — Three statistics cards showcasing campaign milestones
+- **Plant a Tree Form** — Input fields for Name, Email, and Number of Trees with a submission button
+- **Footer** — Copyright information and site credits
 
-# Ans:
-map() = returns a new array with transformed values.
+### Functionality
+- **Dynamic Category Loading** — Tree categories are fetched from the API and rendered in the sidebar
+- **Category Filtering** — Clicking a category loads the corresponding trees in a 3-column card grid
+- **Tree Cards** — Each card displays: Plant Image, Name, Short Description, Category, Price, and an "Add to Cart" button
+- **Detail Modal** — Clicking a tree name opens a modal with the full plant details
 
-forEach() = just loops, doesn’t return anything.
+### Challenges Implemented
+- **Add to Cart** — Trees are added to a cart list showing the tree name
+- **Total Price Calculation** — Cart dynamically calculates and displays the total cost
+- **Remove from Cart** — Clicking ❌ removes an item and updates the total price accordingly
+- **Loading Spinner** — A spinner is shown while API data is being fetched
+- **Active Category Highlight** — The currently selected category button is visually highlighted
 
-filter() = returns a new array with items that pass a condition.
+### Responsiveness
+- Fully mobile-responsive layout across all screen sizes
 
-#### 3) What are arrow functions in ES6?
+---
 
-# Ans:
-Shorter syntax for functions in ES6. They don’t have their own this (take it from surrounding scope).
+## 🛠️ Technology Stack
 
-#### 4) How does destructuring assignment work in ES6?
+| Technology | Purpose |
+|---|---|
+| HTML5 | Page structure and markup |
+| CSS3 / Tailwind CSS / DaisyUI | Styling and responsive design |
+| JavaScript (Vanilla) | Logic, DOM manipulation, API calls |
 
-# Ans:
-A way to unpack values from arrays or objects into variables.
-Example:
-const [a, b] = [1, 2];  
-const {name, age} = person;
+> ⚠️ No JavaScript frameworks were used. This project is built with vanilla JS only.
 
-#### 5) Explain template literals in ES6. How are they different from string concatenation?
+---
 
-# Ans:
-Strings written with backticks `.
-They allow variables and expressions inside ${ }.
-Difference = No need for + concatenation, easier for multiline strings.
+## 📁 Project Structure
 
-## ⚙️ Functionalities 
+```
+green-earth/
+├── index.html
+├── style.css
+├── script.js
+└── README.md
+```
 
-1) Category Loading 
-Load Tree Categories dynamically on the left side.
+---
 
-2) Category Click → Tree Data 
-On clicking a category: load trees of that category.
+## 💡 JavaScript Concepts Used
 
-Display in a 3-column card layout.
+### 1. `var`, `let`, and `const`
 
-3) Card Contents 
- Each card includes:
+| Keyword | Scope | Re-declarable | Re-assignable |
+|---|---|---|---|
+| `var` | Function-scoped | ✅ Yes | ✅ Yes |
+| `let` | Block-scoped | ❌ No | ✅ Yes |
+| `const` | Block-scoped | ❌ No | ❌ No |
 
-        - Image
+`var` is the old way of declaring variables and can lead to unexpected behavior due to hoisting. `let` and `const` were introduced in ES6 and are block-scoped, making them safer and more predictable. Use `const` by default; switch to `let` only when reassignment is needed.
 
-        -  Name
+---
 
-        - Short description
+### 2. `map()`, `forEach()`, and `filter()`
 
-        - Category
+| Method | Returns | Use Case |
+|---|---|---|
+| `map()` | New transformed array | Transform each element |
+| `forEach()` | `undefined` | Side effects (e.g., DOM updates) |
+| `filter()` | New filtered array | Select elements matching a condition |
 
-        - Price
+```js
+const prices = [10, 20, 30];
 
-        - Add to Cart button
+// map — double each price
+const doubled = prices.map(p => p * 2); // [20, 40, 60]
 
-4) Modal on Card Click 
-Clicking a tree name on a card opens a modal with full tree details.
+// filter — only prices above 15
+const expensive = prices.filter(p => p > 15); // [20, 30]
 
+// forEach — log each price
+prices.forEach(p => console.log(p)); // no return value
+```
 
-##  🧪 Challenges 
+---
 
+### 3. Arrow Functions (ES6)
 
-    1) Add to Cart 
-    Clicking Add to Cart: - Adds the tree to Cart List
-                          - Shows tree name 
+Arrow functions provide a shorter syntax for writing functions. They do not have their own `this` — they inherit it from the surrounding lexical scope, which makes them ideal for callbacks.
 
-    2) Total Calculation 
-    Calculate total price of trees in cart.
+```js
+// Traditional function
+function greet(name) {
+  return `Hello, ${name}!`;
+}
 
-    3) Remove from Cart 
-    Clicking ❌ removes tree and deducts price from total.
+// Arrow function equivalent
+const greet = (name) => `Hello, ${name}!`;
+```
 
-    4) Loading Spinner
-    Show spinner while data is loading.
+---
 
-    5) Active Button State 
-    Highlight active category button when selected.
+### 4. Destructuring Assignment (ES6)
 
+Destructuring allows unpacking values from arrays or objects into individual variables in a concise syntax.
 
+```js
+// Array destructuring
+const [first, second] = [1, 2];
 
-🧰 Technology Stack:
-        
-        HTML
+// Object destructuring
+const { name, price } = plant;
 
-        CSS (Vanilla / Tailwind / DaisyUI)
+// With default values
+const { category = "Unknown" } = plant;
+```
 
-        JavaScript (Vanilla only, no frameworks)
+---
+
+### 5. Template Literals (ES6)
+
+Template literals use backticks (`` ` ``) instead of quotes and support embedded expressions via `${}`. They also preserve line breaks natively.
+
+```js
+const name = "Oak";
+const price = 25;
+
+// Old string concatenation
+const msg1 = "Plant: " + name + ", Price: $" + price;
+
+// Template literal
+const msg2 = `Plant: ${name}, Price: $${price}`;
+```
+
+**Key advantages over string concatenation:**
+- No need for `+` operators
+- Supports multi-line strings naturally
+- Allows any JavaScript expression inside `${}`
+
+---
+
+## 📸 Screenshots
+
+> _Add screenshots of your project here_
+
+---
+
+## 👤 Author
+
+> _Add your name, GitHub profile, and contact info here_
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).

@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignment 6</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 
 <!--font awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -32,9 +37,11 @@
     </div>
     <div class="navbar-center hidden lg:flex">
       <ul class="flex gap-5 px-1 text-white">
-        <li><a>About</a></li>
-        <li>Gallery</li>
-        <li><a>Plant a Tree</a></li>
+
+        <li><a href="#gallery">Gallery</a></li>
+
+     <li><a href="#about">About</a></li>
+        <li><a href="#plant-tree">Plant Tree</a></li>
       </ul>
     </div>
 
@@ -46,15 +53,15 @@
           </svg>
         </button>
       </div>
-      <a href="" class="pt-2 btn bg-[#FACC15] text-[#15803D] hidden lg:block">Plant a Tree</a>
+      <a href="#plant-tree" class="pt-2 btn bg-[#FACC15] text-[#15803D] hidden lg:block">Plant a Tree</a>
     </div>
   </div>
   <div id="mobile-menu" class="hidden bg-[#15803D]">
     <ul class="menu menu-vertical px-2 py-2 text-white">
-      <li><a href="">About</a></li>
-      <li><a href="">Gallery</a></li>
-      <li><a href="">Plant a Tree</a></li>
-      <li><a class="btn w-full bg-[#FACC15] text-[#15803D] mt-2" href="">Plant a Tree</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#about">About</a></li>
+      <li><a href="#plant-tree">Plant Tree</a></li>
+      <li><a class="btn w-full bg-[#FACC15] text-[#15803D] mt-2" href="#plant-tree">Plant a Tree</a></li>
     </ul>
   </div>
 </nav>
@@ -81,7 +88,7 @@
         <p class="text-xs md:text-base text-[#153443] mb-6">
             Join our mission to plant 1 million trees and make the Earth greener for future generations.
         </p>
-        <a href="" class="inline-block px-8 py-3 bg-[#FACC15] text-[#15803D] rounded-xl font-semibold transition-colors duration-300 hover:bg-[#E5B80C]">
+        <a href="#plant-tree" class="inline-block px-8 py-3 bg-[#FACC15] text-[#15803D] rounded-xl font-semibold transition-colors duration-300 hover:bg-[#E5B80C]">
             Get Involved
         </a>
     </div>
@@ -114,9 +121,9 @@
 </dialog>
 
 
-<!--Functionalities section-->
+<!--Functionalities section - Gallery-->
 
-<section class="px-4 py-8 md:px-[135px] md:py-[80px]">
+<section id="gallery" class="px-4 py-8 md:px-[135px] md:py-[80px]">
     <h1 class="text-center text-4xl pb-6 md:text-4xl">Choose Your Trees</h1>
     <div class="flex flex-col md:flex-row gap-6">
   
@@ -155,7 +162,7 @@
 
 <!--About Campaign-->
 
-   <section class="px-4 md:px-[138px] bg-emerald-50">
+   <section id="about" class="px-4 md:px-[138px] bg-emerald-50">
     <h1 class="text-center p-10 text-4xl">About the Campaign</h1>
     <div class="flex flex-col md:flex-row gap-6 items-center">
         <img src="./assets/about.png" alt="" class="w-full md:w-auto"/>
@@ -204,7 +211,7 @@
 
 <!--Plant a Tree Today Section -->
 
-<section class="bg-[#15803D] pt-20 pb-20 flex justify-center px-4">
+<section id="plant-tree" class="bg-[#15803D] pt-20 pb-20 flex justify-center px-4">
     <div class="bg-green-600 p-8 rounded-lg shadow-md w-full max-w-md">
         <h1 class="text-center text-white text-2xl mb-6">Plant a Tree Today</h1>
         <div class="flex flex-col gap-4">
