@@ -6,7 +6,7 @@ A responsive web application built with vanilla HTML, CSS, and JavaScript that e
 
 ## 🚀 Live Demo
 
-> aquamarine-cactus-845014.netlify.app
+> `aquamarine-cactus-845014.netlify.app`
 
 ---
 
@@ -173,18 +173,11 @@ const msg2 = `Plant: ${name}, Price: $${price}`;
 
 ---
 
-## 📸 Screenshots
-
-> _Add screenshots of your project here_
-
----
 
 ## 👤 Author
 
-> _Add your name, GitHub profile, and contact info here_
+> Md Sanjid Islam
+> 01745532902
 
 ---
 
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
